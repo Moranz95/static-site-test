@@ -1,99 +1,269 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Ruochen Mei</title>
-    <!--link rel="stylesheet" href="style.css"-->
     <style>
+        body {
+            background-color: rgb(244, 244, 244);
+            font-family: Arial, sans-serif;
+            color: rgb(50, 50, 50);
+            margin: 0;
+            padding: 0;
+        }
 
-      body{
-        background-color: rgb(244, 244, 244);
-        font-family: Arial, sans-serif;
-      }
+        main {
+            padding-top: 70px;
+        }
 
-      p{
-        text-align: center;
-        color: rgb(50, 50, 50);
-        margin-top: 0px;
-        margin-bottom: 0px;
-      }
+        a {
+            text-decoration: none;
+            color: rgb(50, 50, 50);
+        }
 
-      div{
-        text-align: center;
-      }
+        header {
+            display: flex;
+            justify-content: space-between;
+            position: fixed;
+            left: 0;
+            right: 0;
+            padding: 10px 20px;
+            background-color: white;
+            z-index: 10;
+        }
 
-      .title{
-        font-size: 32px;
-        font-weight: bold;
-        margin-top: 50px;
-      }
+        .creator {
+            font-weight: bold;
+            font-size: 30px;
+        }
 
-      .contact{
-        margin-top: 18px;
-      }
+        .menu-div {
+            position: relative;
+        }
 
-      .ig{
-        margin-top: 15px;
-      }
+        .menu {
+            height: 40px;
+            cursor: pointer;
+        }
 
-      .ig-logo{
-        margin-top: 15px;
-      }
+        .dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 3px;
+            z-index: 10;
+            white-space: nowrap;
+        }
 
-      .my-work{
-        font-size: 24px;
-        font-weight: bold;
-        margin-top: 40px;
-        margin-bottom: 20px;
-      }
+        .dropdown a {
+            display: block;
+            padding: 8px 16px;
+            font-size: 16px;
+            color: black;
+        }
 
-      .work{
-        width:200px; 
-        margin: 10px;
-      }
+        .dropdown a:hover {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
 
+        .my-work{
+          padding-left: 30px;
+
+        }
+
+.work-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* Responsive columns */
+    grid-auto-rows: 350px; /* Set a minimum height for rows */
+    gap: 10px; /* Space between items */
+    justify-items: center; /* Center items horizontally within their grid cells */
+    margin: 20px; /* Add some space around the container */
+}
+
+.work {
+    width: 100%; /* Full width to fill grid cell */
+    height: auto; /* Maintain aspect ratio for images */
+    object-fit: cover; /* Cover the area of the grid cell */
+    
+}
+
+
+
+video {
+    width: 100%; /* Make videos take full width of grid cell */
+    height: auto; /* Maintain aspect ratio for videos */
+    object-fit: cover; /* Cover the area of the grid cell */
+}
+        /* Tab bar styling */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            background-color: transparent;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .tab:hover {
+            background-color: #ddd;
+        }
+
+        .tab.active {
+            background-color: #393939;
+            color: white;
+        }
     </style>
-
-  </head>
-  <body>
-    <p class="title">
-      Ruochen Mei
-    </p>
-
-    <p class="contact">
-      info@ruochenmei.com
-    </p>
-
-    <p class="ig">
-      <a href="https://www.instagram.com/i_am_summerrr/" target="_blank">
-        instagram
-      </a>
-    </p>
-
-    <div class="ig-logo">
-      <a href="https://www.instagram.com/i_am_summerrr/" target="_blank">
-          <img src="images\logos\instagram-logo.svg" alt="Instagram" style="width:30px;height:30px;">
-      </a>
-    </div>
-
-      <!--Work section-->
+</head>
+<body>
+<header>
     <div>
-      <p class="my-work">My Work</p>
+        <div class="creator">MEI RUOCHEN</div>
+        <div>Set Designer</div>
+    </div>
+    <div class="menu-div">
+        <img class="menu" src="files/icons/hamburger-menu.svg" alt="Menu">
+        <div class="dropdown" id="dropdown-menu">
+            <a href="#about">About Me</a>
+            <a href="#projects">Clients</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="tabs">
+        <div class="tab active" data-category="all">All</div>
+        <div class="tab" data-category="advertising">Advertising</div>
+        <div class="tab" data-category="fashion-film">Fashion Film</div>
+        <div class="tab" data-category="editorial">Editorial</div>
     </div>
 
     <div>
-      <img class="work" src="images\works\work1.jpg" alt="Work 1">
-    </div>
-  
-    <div>
-      <img class="work" src="images\works\work2.jpg" alt="Work 2">
-    </div>
-  
-    <div>
-      <img class="work" src="images\works\work3.jpg" alt="Work 3">
+        <h2 class="my-work">My Work</h2>
     </div>
 
-  </body>
+    <!-- Work images with category classes -->
+    <div>
+<!-- Work images with category classes -->
+<div class="work-container">
+  <img class="work advertising" src="files/works/advertising/CAMPAIGN 1 - PUBLISHED BY.jpg" alt="Work 1 - Advertising">
+  <img class="work advertising" src="files/works/advertising/CAMPAIGN 2 - PUBLISHED BY.jpg" alt="Work 2 - Advertising">
+  <img class="work advertising" src="files/works/advertising/CAMPAIGN 3 - PUBLISHED BY.jpg" alt="Work 3 - Advertising">
+  <img class="work advertising" src="files/works/advertising/Commercial Campaign 1 - LINLIN CHASSE.jpg" alt="Work 4 - Advertising">
+  <img class="work advertising" src="files/works/advertising/Commercial Campaign 2 - LINLIN CHASSE.jpg" alt="Work 5 - Advertising">
+  <img class="work advertising" src="files/works/advertising/Commercial Campaign 3 - LINLIN CHASSE.jpg" alt="Work 6 - Advertising">
+  <img class="work advertising" src="files/works/advertising/Commercial Campaign 4 - LINLIN CHASSE.jpg" alt="Work 7 - Advertising">
+  <img class="work advertising" src="files/works/advertising/Commercial Campaign 5 - LINLIN CHASSE.jpg" alt="Work 8 - Advertising">
+  <img class="work advertising" src="files/works/advertising/Social Campaign 1 - Zona 20.jpg" alt="Work 9 - Advertising">
+  <img class="work advertising" src="files/works/advertising/Social Campaign 2 - Zona 20.jpg" alt="Work 10 - Advertising">
+  <img class="work advertising" src="files/works/advertising/Social Campaign 3 - Zona 20.jpg" alt="Work 11 - Advertising">
+
+  <div class="video-container">
+  <div>
+    <video class="work fashion-film" controls>
+        <source src="files/works/fashion-film/Long Commercial -PEACEBIRD.mp4" type="video/mp4">
+        Your browser does not support mp4 video format.
+    </video>
+  </div>
+
+  <div>
+    <video class="work fashion-film" controls>
+        <source src="files/works/fashion-film/Long Commercial Campaign - ZONA 20 .mov" type="video/mp4">
+        Your browser does not support mov video format.
+    </video>
+  </div>
+
+  <div>
+    <video class="work fashion-film" controls>
+        <source src="files/works/fashion-film/Set Design for Zona20 AW24 - Long Commercial .mov" type="video/mp4">
+        Your browser does not support mov video format.
+    </video>
+  </div>
+
+  <div>
+    <video class="work fashion-film" controls>
+        <source src="files/works/fashion-film/Short Commercial Campaign 1- ZONA20.mov" type="video/mp4">
+        Your browser does not support mov video format.
+    </video>
+  </div>
+  </div>
+
+
+
+  <img class="work editorial" src="files/works/editorial/Editorial (1).jpg" alt="Work 1 - Editorial">
+  <img class="work editorial" src="files/works/editorial/Editorial (2).jpg" alt="Work 2 - Editorial">
+  <img class="work editorial" src="files/works/editorial/Editorial (3).jpg" alt="Work 3 - Editorial">
+  <img class="work editorial" src="files/works/editorial/Editorial - L_officiel .jpg" alt="Work 4 - Editorial">
+  <img class="work editorial" src="files/works/editorial/EDITORIAL -prop styling- GQ CHINA-1.JPG" alt="Work 5 - Editorial">
+  <img class="work editorial" src="files/works/editorial/Editorial.jpg" alt="Work 6 - Editorial">
+
+
+
+    
+</div>
+</main>
+
+<script>
+    // Dropdown menu toggle
+    document.querySelector('.menu').addEventListener('click', function () {
+        const dropdown = document.getElementById('dropdown-menu');
+        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Close dropdown if clicking outside of it
+    window.addEventListener('click', function (event) {
+        const menu = document.querySelector('.menu');
+        const dropdown = document.getElementById('dropdown-menu');
+        if (!menu.contains(event.target)) {
+            dropdown.style.display = 'none';
+        }
+    });
+
+    // Tab bar functionality
+    const tabs = document.querySelectorAll('.tab');
+    const works = document.querySelectorAll('.work');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function () {
+            // Remove 'active' class from all tabs
+            tabs.forEach(tab => tab.classList.remove('active'));
+            // Add 'active' class to the clicked tab
+            this.classList.add('active');
+
+            const category = this.getAttribute('data-category');
+
+            // Show or hide works based on category
+            works.forEach(work => {
+                if (category === 'all') {
+                    work.style.display = 'block'; // Show all works
+                } else {
+                    work.style.display = work.classList.contains(category) ? 'block' : 'none';
+                }
+            });
+        });
+    });
+
+    // Show all works by default
+    document.querySelectorAll('.work').forEach(work => {
+        work.style.display = 'block'; // Show all works initially
+    });
+
+</script>
+
+</body>
 </html>
